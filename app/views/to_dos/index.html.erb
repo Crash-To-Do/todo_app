@@ -3,7 +3,11 @@
 <% @todos.each do |todo| %>
   <div class= 'todo'>
       <h3><%= todo.title %></h3>
+      <%= form_for todo do |f|%>
+        <%=f.check_box :complete, remote: true%>
+      <% end %>
       <p><%= todo.description %></p>
       <p><%= todo.category %></p>
   </div>
+
 <% end %>
