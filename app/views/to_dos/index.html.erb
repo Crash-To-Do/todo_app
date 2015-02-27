@@ -1,16 +1,28 @@
 <h1>ToDos</h1>
-<ul id="sortable">
-Item 1</li>
-<div id="sortable">
-<% @todos.each do |todo| %>
-  <div class= 'todo'>
-    <h3><%= todo.title %></h3>
-    <%= form_for todo do |f|%>
-    <%= f.hidden_field :id, class: "rails-id" %>
-      <%=f.check_box :complete %>
-    <% end %>
-    <p><%= todo.description %></p>
-    <p><%= todo.category %></p>
-  </div>
-</div>
-<% end %>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+<script>
+$(function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
+});
+</script>
+
+<ul id= "sortable" style= "cursor:move">
+  <% @todos.each do |todo| %>
+    <li class="ui-state-default" id= "item_<%= todo.id %>"
+      <div class= 'todo'>
+        <h3><%= todo.title %></h3>
+        <%= form_for todo do |f|%>
+        <%= f.hidden_field :id, class: "rails-id" %>
+          <%=f.check_box :complete %>
+        <% end %>
+        <p><%= todo.description %></p>
+        <p><%= todo.category %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
