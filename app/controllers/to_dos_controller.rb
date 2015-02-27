@@ -24,6 +24,8 @@ class ToDosController < ApplicationController
   end
 
   def update
+    @todo = ToDo.find(params[:id])
+    ToDo.update(@todo.id, complete: params[:complete])
   end
 
   def destroy
@@ -32,6 +34,6 @@ class ToDosController < ApplicationController
   private
 
     def todo_params
-      params.require(:to_do).permit(:title, :description, :due_at, :order, :category, :id)
+      params.require(:to_do).permit(:title, :description, :due_at, :order, :category, :id, :complete)
     end
 end

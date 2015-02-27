@@ -4,7 +4,8 @@
   <div class= 'todo'>
       <h3><%= todo.title %></h3>
       <%= form_for todo do |f|%>
-        <%=f.check_box :complete, remote: true%>
+      <%= f.hidden_field :id, class: "rails-id" %>
+        <%=f.check_box :complete %>
       <% end %>
       <p><%= todo.description %></p>
       <p><%= todo.category %></p>
