@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227130330) do
+ActiveRecord::Schema.define(version: 20150227175742) do
 
   create_table "to_dos", force: :cascade do |t|
     t.string   "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150227130330) do
     t.integer  "order"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "complete"
   end
 
 end
