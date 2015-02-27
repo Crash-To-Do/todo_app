@@ -1,4 +1,4 @@
-require_relative '../spec_helper.rb'
+require 'rails_helper'
 
 RSpec.describe "to_dos/index", :type => :view do
   it "shows the list of todos in order" do
