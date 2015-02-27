@@ -1,2 +1,9 @@
-<h1>ToDos#index</h1>
-<p>Find me in app/views/to_dos/index.html.erb</p>
+<h1>ToDos</h1>
+
+<% @todos.each do |todo| %>
+  <div class= 'todo'>
+      <h3><%= todo.title %></h3>
+      <p><%= todo.description %></p>
+      <p><%= todo.category %></p>
+  </div>
+<% end %>
