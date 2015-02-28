@@ -1,0 +1,105 @@
+ /*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ */
+ @import "bourbon";
+ @import "base/base";
+ @import "neat";
+
+
+
+#new-todo {
+ a {
+   font-family: "QuickSand";
+   color: black;
+   font-weight: bold;
+   font-size: 1em;
+   display: block;
+   padding: 0 13px;
+   text-transform: uppercase;
+  }
+
+  a:hover {
+    color: #878787;
+  }
+
+  a:after {
+    border-bottom: 2px solid transparent;
+    content: "";
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    top: 6px;
+    width: 14px;
+    z-index: 0;
+  }
+
+  a.active {
+    color: #878787;
+  }
+
+  a.active:after {
+    border-bottom: 2px solid #878787;
+    content: "";
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    top: 6px;
+    width: 14px;
+    z-index: 0;
+  }
+}
+
+#notice{
+  color:white;
+}
+body{
+   height: 600px;
+   background: image-url('coffee_cups.jpeg') repeat fixed center center / cover  rgba(0, 0, 0, 0);
+ }
+
+
+.title{
+  text-align: center;
+  color: white;
+  font-size: 5em;
+  font-weight: 100;
+}
+
+#text_block
+ {
+   @include outer-container;
+   margin-left: 80px;
+   margin-bottom: 40px;
+   background: rgba(255, 255, 255, 0.8);
+   width: 1200px;
+   padding: 10px;
+   border-radius: 5px;
+
+ }
+
+ #new-form{
+   margin: 10px;
+   @include span-columns(6);
+   float: left;
+   width: 300px;
+
+
+ }
+
+ #sortable{
+   @include span-columns(6);
+   h2{
+     text-align: center;
+   }
+ }
