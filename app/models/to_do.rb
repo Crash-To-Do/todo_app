@@ -1,6 +1,6 @@
 class ToDo < ActiveRecord::Base
   validates :title, presence: true
-  acts_as_list
+  # acts_as_list
   default_scope { order('position') }
 end
 
