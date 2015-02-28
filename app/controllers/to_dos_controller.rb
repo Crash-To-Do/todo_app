@@ -6,7 +6,6 @@ class ToDosController < ApplicationController
 
   def new
     @todo = ToDo.new
-    @set_order = set_order_number
   end
 
   def create

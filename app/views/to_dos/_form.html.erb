@@ -1,0 +1,13 @@
+<%= form_for @todo do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %><br>
+
+  <%= f.text_area :description, placeholder: "Description" %><br>
+
+  <%= f.text_field :category, placeholder: "Category" %><br>
+
+  <%= f.datetime_select :due_at, placeholder: "Due At" %><br>
+
+  <%= f.hidden_field :order, value: "#{@set_order}", id: "order"  %>
+
+  <%= f.submit "Create ToDo" %>
+<% end %>
