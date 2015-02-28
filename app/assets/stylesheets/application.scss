@@ -79,14 +79,13 @@ body{
 #text_block
  {
    @include outer-container;
-   display: inline-block;
    margin-left: 80px;
-   margin-bottom: 20px;
-   right: 50%;
+   margin-bottom: 40px;
    background: rgba(255, 255, 255, 0.8);
    width: 1200px;
    padding: 10px;
    border-radius: 5px;
+
  }
 
  #new-form{
@@ -100,4 +99,7 @@ body{
 
  #sortable{
    @include span-columns(6);
+   h2{
+     text-align: center;
+   }
  }
