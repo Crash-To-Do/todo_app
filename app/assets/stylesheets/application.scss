@@ -10,67 +10,64 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
  */
- /*
- ------------------
- Navigation
- ------------------*/
+ @import "bourbon";
+ @import "base/base";
+ @import "neat";
 
 
- #new-todo {
-   margin-top: 0px;
 
-   a {
-     color: #ffffff;
-     font-family: "QuickSand";
-     font-size: 14px;
-     display: block;
-     padding: 0 13px;
-     position: relative;
-     text-transform: uppercase;
-    }
-
- }
-
- #new-todo a:hover {
-   color: #878787;
- }
-
- #new-todo a:after {
-   border-bottom: 2px solid transparent;
-   content: "";
+#new-todo {
+ a {
+   font-family: "QuickSand";
+   color: black;
+   font-weight: bold;
+   font-size: 1em;
    display: block;
-   margin-right: auto;
-   margin-left: auto;
-   position: relative;
-   top: 6px;
-   width: 14px;
-   z-index: 0;
- }
+   padding: 0 13px;
+   text-transform: uppercase;
+  }
 
- #new-todo a.active {
-   color: #878787;
- }
+  a:hover {
+    color: #878787;
+  }
 
- #new-todo a.active:after {
-   border-bottom: 2px solid #878787;
-   content: "";
-   display: block;
-   margin-right: auto;
-   margin-left: auto;
-   position: relative;
-   top: 6px;
-   width: 14px;
-   z-index: 0;
- }
+  a:after {
+    border-bottom: 2px solid transparent;
+    content: "";
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    top: 6px;
+    width: 14px;
+    z-index: 0;
+  }
 
+  a.active {
+    color: #878787;
+  }
 
+  a.active:after {
+    border-bottom: 2px solid #878787;
+    content: "";
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    top: 6px;
+    width: 14px;
+    z-index: 0;
+  }
+}
+
+#notice{
+  color:white;
+}
 body{
    height: 600px;
    background: image-url('coffee_cups.jpeg') repeat fixed center center / cover  rgba(0, 0, 0, 0);
  }
+
 
 .title{
   text-align: center;
@@ -79,13 +76,28 @@ body{
   font-weight: 100;
 }
 
-#sortable
+#text_block
  {
+   @include outer-container;
+   display: inline-block;
+   margin-left: 80px;
+   margin-bottom: 20px;
+   right: 50%;
    background: rgba(255, 255, 255, 0.8);
-   width: 600px;
-   padding-top: 10px;
-   padding-bottom: 10px;
+   width: 1200px;
+   padding: 10px;
    border-radius: 5px;
-   margin-top: 20px;
-   margin-left: 20px;
+ }
+
+ #new-form{
+   margin: 10px;
+   @include span-columns(6);
+   float: left;
+   width: 300px;
+
+
+ }
+
+ #sortable{
+   @include span-columns(6);
  }
