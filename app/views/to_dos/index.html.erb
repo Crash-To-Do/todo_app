@@ -1,22 +1,8 @@
+<h1 class= "title"> Crash ToDos</h1>
 <%= form_tag to_dos_path, :method => 'get', id: "todos-search" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", :title => nil %>
   </p>
+  <div class="to-dos-form"><%= render 'to_dos' %></div>
 <% end %>
-
-<h1 class= "title"> Crash ToDos</h1>
-
-<div id= "text_block">
-  <table class="table table-bordered table-striped" id="sortable">
-    <thead>
-      <tr>
-        <th>
-          ToDos
-        </th>
-        <th>
-
-
-<div id="new-form"></div>
-
-<div class="to-dos-form"><%= render 'to_dos' %></div>

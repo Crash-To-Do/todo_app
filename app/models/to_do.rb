@@ -24,7 +24,7 @@ end
     if search
       where('title LIKE ?', "%#{search}%")
     else
-      ToDo.all
+      all
     end
   end
 end
