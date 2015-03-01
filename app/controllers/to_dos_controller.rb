@@ -1,7 +1,8 @@
 class ToDosController < ApplicationController
 
   def index
-    @todos= ToDo.rank(:position).all
+    # @todos= ToDo.rank(:position).all
+    @todos= ToDo.search(params[:search]).rank(:position).all
   end
 
   def new
@@ -10,6 +11,7 @@ class ToDosController < ApplicationController
 
   def create
     @todo = ToDo.new(todo_params)
+    @todo.position = ToDo.set_position
     if @todo.save
       redirect_to to_dos_path
       flash[:notice] = "ToDo created."

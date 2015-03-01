@@ -3,14 +3,14 @@ class ToDo < ActiveRecord::Base
   include RankedModel
   ranks :position
 
-# def set_order_number
-#   last = ToDo.last
-#   if last == nil
-#     1
-#   else
-#     last.order + 1
-#   end
-# end
+def self.set_position
+  last = ToDo.rank(:position).last
+  if last == nil
+    1
+  else
+    last.position + 1
+  end
+end
 
   # def sort
   #   @todo_list = ToDo.all
@@ -19,4 +19,12 @@ class ToDo < ActiveRecord::Base
   #     f.save
   #   end
   # end
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      ToDo.all
+    end
+  end
 end

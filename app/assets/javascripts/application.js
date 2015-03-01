@@ -31,3 +31,10 @@ $(function() {
    });
   })
 });
+
+$(function() {
+  $("#todos-search input").keyup(function() {
+    $.get($("#todos-search").attr("action"), $("#todos-search").serialize(), null, "script");
+    return false;
+  });
+});

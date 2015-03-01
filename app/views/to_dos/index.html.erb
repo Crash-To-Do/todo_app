@@ -1,3 +1,10 @@
+<%= form_tag to_dos_path, :method => 'get', id: "todos-search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <h1 class= "title"> Crash ToDos</h1>
 
 <div id = "new-todo">
@@ -5,30 +12,5 @@
 </div>
 
 <div id="new-form"></div>
-<table class="table table-bordered table-striped" id="sortable">
-  <thead>
-    <tr>
-      <th>
-        Title
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @todos.each do |todo| %>
-      <tr data-item-id=<%= "#{todo.id}" %> class="item">
-        <td>
-          <h3><%= todo.title %></h3>
-          <%= form_for todo do |f|%>
-            <%= f.hidden_field :id, class: "rails-id" %>
-            <%=f.check_box :complete, class: "to-do-complete" %>
-            <% end %>
-          <p><%= todo.description %></p>
-          <p><%= todo.category %></p>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="to-dos-form"><%= render 'to_dos' %></div>
