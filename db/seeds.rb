@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+categories= ["Family", "Work", "School"]
+15.times do
+  ToDo.create(title: Faker::Commerce.product_name, description: Faker::Lorem.sentence,
+  category: categories.sample, due_at: Faker::Date.forward(23))
+end

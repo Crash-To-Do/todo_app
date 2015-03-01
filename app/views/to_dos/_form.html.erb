@@ -1,11 +1,13 @@
-<%= form_for @todo do |f| %>
-  <%= f.text_field :title, placeholder: "Title" %><br>
+<div id = "new-form">
+  <%= form_for @todo do |f| %>
+    <%= f.text_field :title, placeholder: "Title" %><br>
 
-  <%= f.text_area :description, placeholder: "Description" %><br>
+    <%= f.text_area :description, placeholder: "Description" %><br>
 
-  <%= f.text_field :category, placeholder: "Category" %><br>
+    <%= f.text_field :category, placeholder: "Category" %><br>
 
-  <%= f.datetime_select :due_at, placeholder: "Due At" %><br>
+    <%= f.datetime_select :due_at, placeholder: "Due At", ampm: true %>
 
-  <%= f.submit "Create ToDo" %>
-<% end %>
+    <%= f.submit "Create ToDo" %>
+  <% end %>
+</div>
