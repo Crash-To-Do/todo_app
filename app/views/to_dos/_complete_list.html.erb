@@ -1,0 +1,21 @@
+
+    <% @todos.completed.each do |todo| %>
+    <tr data-item-id=<%= "#{todo.id}" %> class="item">
+      <td>
+        <h3><%= todo.title %></h3>
+        <%= form_for todo do |f|%>
+          <%= f.hidden_field :id, class: "rails-id" %>
+          <% unless todo.description.empty?  %>
+            <p><h4>Description: </h4><%= todo.description %></p>
+          <% end %>
+          <% unless todo.description.empty?  %>
+            <p><h4>Category:    </h4><%= todo.category %></p>
+          <% end %>
+          <%  if todo.due_at %>
+            <p><h4>Due Date:  </h4><%= local_time(todo.due_at) %></p>
+          <% end %>
+          <h4>Completed: </h4><%=f.check_box :complete, class: "to-do-complete" %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>

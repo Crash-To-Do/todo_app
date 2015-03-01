@@ -6,7 +6,7 @@
 
     <%= f.text_field :category, placeholder: "Category" %><br>
 
-    <%= f.datetime_select :due_at, placeholder: "Due At", ampm: true %>
+    <%= f.datetime_select :due_at, placeholder: "Due At", ampm: true, include_blank: true  %>
 
     <%= f.submit "Create ToDo" %>
   <% end %>

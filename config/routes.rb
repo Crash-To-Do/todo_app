@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :to_dos do
     patch :update_position, on: :collection
+    get :completed, on: :collection
   end
 
   root 'to_dos#index'

@@ -15,10 +15,6 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
-function set_time_zone_offset() {
-  var current_time = new Date();
-  $.cookie('time_zone', current_time.getTimezoneOffset());
-}
 
 $(function() {
   $('.to-do-complete').on("click", function() {
