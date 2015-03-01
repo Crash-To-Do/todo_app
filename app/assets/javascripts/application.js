@@ -33,12 +33,10 @@ $(function() {
 });
 
 $(function() {
-  $("#todos-search input").keyup(function() {
-    $.ajax({
-      type: "GET",
-      url: "/to_dos"
-      data: {search: search}
-    });
-
+  $("#todos-search input").on('keyup', function() {
+    $.get($("#todos-search").attr("index"), $("#todos-search").serialize(), null, "script");
+    return false;
+  });
+});
 
 $('#new-todo').on("click", function() {('new-todo').hide})

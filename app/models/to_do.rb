@@ -21,10 +21,10 @@ end
   # end
 
   def self.search(search)
-    if search
-      where('title LIKE ?', "%#{search}%")
-    else
+    if search == ""
       all
+    else
+      where('title LIKE ?', "%#{search}%")
     end
   end
 end
