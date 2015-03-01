@@ -1,7 +1,7 @@
 class ToDosController < ApplicationController
 
   def index
-    @todos= ToDo.all
+    @todos= ToDo.rank(:position).all
   end
 
   def new
@@ -23,8 +23,14 @@ class ToDosController < ApplicationController
   end
 
   def update
-    @todo = ToDo.find(params[:id])
+    @todo = ToDo.find_by_id(params[:id])
     ToDo.update(@todo.id, complete: params[:complete])
+  end
+
+  def update_position
+    @todo = ToDo.find_by_id(params[:id])
+    ToDo.update(@todo.id, position: params[:position])
+    render nothing: true
   end
 
   def destroy
@@ -33,6 +39,6 @@ class ToDosController < ApplicationController
   private
 
     def todo_params
-      params.require(:to_do).permit(:title, :description, :due_at, :category, :id, :complete)
+      params.require(:to_do).permit(:title, :description, :due_at, :position, :category, :id, :complete)
     end
 end
