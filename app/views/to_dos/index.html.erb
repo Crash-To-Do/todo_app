@@ -6,8 +6,10 @@
       <span>
         <%= text_field_tag :search, params[:search], placeholder: "Search ToDos!" %>
       </span>
+      <% end %>
     <div id= "text_block">
+
       <%= render 'to_dos' %>
+
     </div>
   </div>
-<% end %>

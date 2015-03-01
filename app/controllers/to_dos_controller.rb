@@ -12,10 +12,9 @@ class ToDosController < ApplicationController
   def create
     @todo = ToDo.new(todo_params)
     @todo.position = ToDo.set_position
-    if @todo.save
-      redirect_to to_dos_path
-      flash[:notice] = "ToDo created."
-    end
+    @todo.save
+    redirect_to to_dos_path
+    flash[:notice] = "ToDo created."
   end
 
   def show
