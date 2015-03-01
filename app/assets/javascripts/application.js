@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 $(function() {
-  $('#to_do_complete').on("click", function() {
+  $('.to-do-complete').on("click", function() {
     var checked;
     var val = $(this).prevAll(".rails-id").val()
     if ($(this).is(':checked')) {
