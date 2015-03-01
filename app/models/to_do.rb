@@ -1,9 +1,7 @@
 class ToDo < ActiveRecord::Base
-  validates :title, presence: true
-  # acts_as_list
-  default_scope { order('position') }
-end
-
+  validates_presence_of :title
+  include RankedModel
+  ranks :position
 
 # def set_order_number
 #   last = ToDo.last
@@ -14,10 +12,11 @@ end
 #   end
 # end
 
-def sort
-  @todo_list = ToDo.all
-  @todo_list.each do |f|
-    f.position = params["sortable"].index(f.id.to_s)+1
-    f.save
-  end
+  # def sort
+  #   @todo_list = ToDo.all
+  #   @todo_list.each do |f|
+  #     f.position = params["sortable"].index(f.id.to_s)+1
+  #     f.save
+  #   end
+  # end
 end
