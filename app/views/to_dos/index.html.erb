@@ -9,23 +9,26 @@ $(function() {
   $( "#sortable" ).disableSelection();
 });
 </script>
-
-<ul id= "sortable" style= "cursor:move">
-  <% @todos.each do |todo| %>
-    <li class="ui-state-default" id= "item_<%= todo.id %>"
-      <div class= 'todo'>
-        <h3><%= todo.title %></h3>
-        <%= form_for todo do |f|%>
-        <%= f.hidden_field :id, class: "rails-id" %>
-          <%=f.check_box :complete %>
-        <% end %>
-        <p><%= todo.description %></p>
-        <p><%= todo.category %></p>
-      </div>
-    </li>
-  <% end %>
-</ul>
-<div id = "new-todo">
-<%= link_to "New", new_to_do_path, remote: true %>
+<div id= "text_block">
+  <ul id= "sortable">
+    <h2> Your ToDos </h2>
+    <% @todos.each do |todo| %>
+      <li class="ui-state-default" id= "item_<%= todo.id %>" style= "cursor:move">
+        <div class= 'todo'>
+          <h3><%= todo.title %></h3>
+          <p><%= todo.description %></p>
+          <p><%= todo.category %></p>
+          <%= form_for todo do |f|%>
+            <%= f.hidden_field :id, class: "rails-id" %>
+            Complete? <%=f.check_box :complete, class: "to_do_complete" %>
+          <% end %>
+        </div>
+      </li><br>
+    <% end %>
+  </ul>
+  <div id = "new-todo">
+    <p>Welcome to Crash ToDos! To create a new ToDo item, please click below.</p>
+    <%= link_to "New ToDo", new_to_do_path, remote: true %>
+  </div>
+  <div id="new-form"></div>
 </div>
-<div id="new-form"></div>

@@ -15,9 +15,9 @@
 //= require turbolinks
 //= require_tree .
 $(function() {
-  $('#to_do_complete').on("click", function() {
+  $('.to_do_complete').on("click", function() {
     var checked;
-    var val = $(this).prevAll(".rails-id").val()
+    var val = $(this).prevAll(".rails-id").val();
     if ($(this).is(':checked')) {
       checked = true;
     } else {
@@ -30,3 +30,5 @@ $(function() {
    });
   })
 });
+
+$('#new-todo').on("click", function() {('new-todo').hide})
