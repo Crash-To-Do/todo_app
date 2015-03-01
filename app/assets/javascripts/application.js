@@ -15,12 +15,18 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
+function set_time_zone_offset() {
+  var current_time = new Date();
+  $.cookie('time_zone', current_time.getTimezoneOffset());
+}
+
 $(function() {
   $('.to-do-complete').on("click", function() {
     var checked;
     var val = $(this).prevAll(".rails-id").val();
     if ($(this).is(':checked')) {
       checked = true;
+      $(this).closest("tr").remove();
     } else {
       checked = false;
     }
