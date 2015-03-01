@@ -18,7 +18,7 @@
 
 
 
-#new-todo {
+#new-and-completed-todo {
  a {
    font-family: "QuickSand";
    color: black;
@@ -95,10 +95,7 @@ body{
  #new-form{
    margin: 10px;
    @include span-columns(6);
-   float: left;
    width: 300px;
-
-
  }
 
  #sortable{
@@ -112,4 +109,11 @@ body{
    position: relative;
    top: 75px;
    left: 400px;
+ }
+ #completed-todos{
+   @include span-columns(6);
+   clear:both;
+   a{
+   text-align: center;
+    }
  }

@@ -15,6 +15,8 @@ gem 'bitters'
 
 gem 'ranked-model'
 
+gem 'local_time'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

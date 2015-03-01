@@ -34,6 +34,10 @@ class ToDosController < ApplicationController
     render nothing: true
   end
 
+  def completed
+    @todos=ToDo.all
+  end
+
   def destroy
   end
 

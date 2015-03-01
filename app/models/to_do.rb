@@ -27,4 +27,12 @@ end
       where('title LIKE ?', "%#{search}%")
     end
   end
+
+  def self.incomplete
+    ToDo.where(complete: [false, nil])
+  end
+
+  def self.completed
+    ToDo.where(complete: true)
+  end
 end

@@ -8,23 +8,35 @@
     </tr>
   </thead>
   <tbody>
-    <% @todos.each do |todo| %>
+    <% @todos.incomplete.each do |todo| %>
       <tr data-item-id=<%= "#{todo.id}" %> class="item">
         <td style= "cursor:move">
         <h3><%= todo.title %></h3>
         <%= form_for todo do |f|%>
           <%= f.hidden_field :id, class: "rails-id" %>
-          <h4> Complete?: </h4><%=f.check_box :complete, class: "to-do-complete" %>
-          <p><h4>Description: </h4><%= todo.description %></p>
-          <p><h4>Category:    </h4><%= todo.category %></p>
+          <% unless todo.description.empty?  %>
+            <p><h4>Description: </h4><%= todo.description %></p>
+          <% end %>
+          <% unless todo.description.empty?  %>
+            <p><h4>Category:    </h4><%= todo.category %></p>
+          <% end %>
+          <%  if todo.due_at %>
+            <p><h4>Due Date:  </h4><%= local_time(todo.due_at) %></p>
+          <% end %>
+          <h4> Mark Complete: </h4><%=f.check_box :complete, class: "to-do-complete" %>
+
         <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<div id = "new-todo">
+<div id = "new-and-completed-todo">
   <p>Welcome to Crash ToDos! To create a new ToDo item, please click below.</p>
   <%= link_to "New", new_to_do_path, remote: true %>
+  <div id ="new-form"></div>
+  <div id = "completed-todos">
+    <%= link_to "See Completed ToDos", completed_to_dos_path, remote: true %>
+    <div id="completed"></div>
+  </div>
 </div>
-<div id="new-form"></div>

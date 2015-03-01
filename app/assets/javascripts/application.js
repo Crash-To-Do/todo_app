@@ -15,12 +15,14 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
+
 $(function() {
   $('.to-do-complete').on("click", function() {
     var checked;
     var val = $(this).prevAll(".rails-id").val();
     if ($(this).is(':checked')) {
       checked = true;
+      $(this).closest("tr").remove();
     } else {
       checked = false;
     }
