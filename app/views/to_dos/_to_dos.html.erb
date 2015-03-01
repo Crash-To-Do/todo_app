@@ -1,31 +1,30 @@
-<div id= "text_block">
-  <table class="table table-bordered table-striped" id="sortable">
-    <thead>
-      <tr>
-        <th>
-          ToDos
-        </th>
+
+<table class="table table-bordered table-striped" id="sortable">
+  <thead>
+    <tr>
+      <th>
+        ToDos
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr data-item-id=<%= "#{todo.id}" %> class="item">
+        <td style= "cursor:move">
+        <h3><%= todo.title %></h3>
+        <%= form_for todo do |f|%>
+          <%= f.hidden_field :id, class: "rails-id" %>
+          <h4> Complete?: </h4><%=f.check_box :complete, class: "to-do-complete" %>
+          <p><h4>Description: </h4><%= todo.description %></p>
+          <p><h4>Category:    </h4><%= todo.category %></p>
+        <% end %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @todos.each do |todo| %>
-        <tr data-item-id=<%= "#{todo.id}" %> class="item">
-          <td style= "cursor:move">
-          <h3><%= todo.title %></h3>
-          <%= form_for todo do |f|%>
-            <%= f.hidden_field :id, class: "rails-id" %>
-            <h4> Complete?: </h4><%=f.check_box :complete, class: "to-do-complete" %>
-            <p><h4>Description: </h4><%= todo.description %></p>
-            <p><h4>Category:    </h4><%= todo.category %></p>
-          <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <div id = "new-todo">
-    <p>Welcome to Crash ToDos! To create a new ToDo item, please click below.</p>
-    <%= link_to "New", new_to_do_path, remote: true %>
-  </div>
-  <div id="new-form"></div>
+    <% end %>
+  </tbody>
+</table>
+<div id = "new-todo">
+  <p>Welcome to Crash ToDos! To create a new ToDo item, please click below.</p>
+  <%= link_to "New", new_to_do_path, remote: true %>
 </div>
+<div id="new-form"></div>
