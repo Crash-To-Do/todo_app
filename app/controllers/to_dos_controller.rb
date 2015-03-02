@@ -1,8 +1,9 @@
 class ToDosController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     # @todos= ToDo.rank(:position).all
-    @todos= ToDo.search(params[:search]).rank(:position).all
+    @todos= ToDo.search(params[:search]).rank(:position).where(user_id: current_user.id).all
   end
 
   def new
@@ -44,6 +45,6 @@ class ToDosController < ApplicationController
   private
 
     def todo_params
-      params.require(:to_do).permit(:title, :description, :due_at, :position, :category, :id, :complete, :search)
+      params.require(:to_do).permit(:title, :description, :due_at, :position, :category, :id, :complete, :search, :user_id)
     end
 end

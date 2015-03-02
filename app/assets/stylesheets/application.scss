@@ -91,6 +91,17 @@ body{
      color: gray;
    }
  }
+.login_signup
+{
+  @include outer-container;
+  margin-left: auto;
+  margin-right: auto;
+
+  background: rgba(255, 255, 255, 0.8);
+  width: 1200px;
+  padding: 10px;
+  border-radius: 5px;
+}
 
  #new-form{
    margin: 10px;
@@ -117,3 +128,11 @@ body{
    text-align: center;
     }
  }
+#sign-out{
+  float:right;
+  color: white;
+  background: #778899	;
+  border: 1px solid;
+  padding: 10px;
+  margin: 0 20px;
+}

@@ -1,3 +1,4 @@
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, id: "sign-out"   %>
 <h1 class= "title"> Crash ToDos</h1>
   <div class="to-dos-form">
     <%= form_tag to_dos_path, :method => 'get', id: "todos-search" do %>
@@ -6,8 +7,6 @@
       </span>
       <% end %>
     <div id= "text_block">
-
       <%= render 'to_dos' %>
-
     </div>
   </div>
