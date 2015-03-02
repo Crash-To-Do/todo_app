@@ -40,5 +40,3 @@ $(function() {
     return false;
   });
 });
-
-$('#new-todo').on("click", function() {('new-todo').hide})
