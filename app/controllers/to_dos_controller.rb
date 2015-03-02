@@ -36,7 +36,7 @@ class ToDosController < ApplicationController
   end
 
   def completed
-    @todos=ToDo.all
+    @todos=ToDo.where(user_id: current_user.id).all
   end
 
   def destroy
